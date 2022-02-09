@@ -1,10 +1,16 @@
-while True:
-    n,x=map(int,input().split())
-    if n==0 and x==0 :
-        break
-    cnt=0
-    for i in range(1,n-1):
-        for j in range(i+1,n):
-            if j<x-i-j<=n:
-                cnt+=1
-    print(cnt)
+n,m,l=map(int,input().split())
+A=[list(map(int,input().split())) for i in range(n)]
+B=[list(map(int,input().split())) for i in range(m)]
+
+C=[]
+for i in range(n):
+    line=[]
+    for j in range(l):
+        c=0
+        for k in range(m):
+            c+=A[i][k]*B[k][j]
+        line.append(c)
+    C.append(line)
+
+for line in C:
+    print(*line)
